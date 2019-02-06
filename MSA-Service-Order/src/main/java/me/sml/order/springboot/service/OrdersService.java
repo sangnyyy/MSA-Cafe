@@ -13,7 +13,8 @@ public class OrdersService {
     private final OrdersRepository ordersRepository;
 
     @Transactional
-    public Orders save(Orders orders){
+    public Orders save(Orders orders, int orderNumber){
+        orders.setOrderNumber(orderNumber);
         return ordersRepository.save(orders);
     }
 }
