@@ -1,0 +1,5 @@
+rootProject.name = 'cafe'
+
+include 'MSA-Service-Order'
+include 'MSA-Service-Member'
+include 'MSA-Service-Status'
