@@ -2,8 +2,9 @@ package me.sml.order.util;
 
 public enum ReturnType {
 
-    OK(0),
-    FAIL(100);
+    OK(200),
+    CREATED(201),
+    SERVER_ERROR(500);
 
     private int value;
 

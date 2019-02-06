@@ -15,6 +15,7 @@ public class OrdersResponseDTO {
     @Getter @Setter
     private int code;
 
+    @Getter
     private Object data;
 
     public OrdersResponseDTO(Object data) {
