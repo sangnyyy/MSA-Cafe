@@ -2,7 +2,7 @@
 with Micro Service Architecture
 
 ### 개발 스펙
-* Spring Boot v.2.1.2
+* Spring Boot v.1.5.10
 * Kafka v.2.1.0
 
 ### Micro Service
@@ -29,7 +29,7 @@ dependencies {
 
 buildscript {
     ext {
-        springBootVersion = '2.1.2.RELEASE'
+        springBootVersion = '1.5.10.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -76,7 +76,5 @@ settings.gradle
 ```
 rootProject.name = 'cafe'
 
-include 'MSA-Service-Order'
-include 'MSA-Service-Member'
-include 'MSA-Service-Status'
+include 'MSA-Service-Order', 'MSA-Service-Member', 'MSA-Service-Status'
 ```
