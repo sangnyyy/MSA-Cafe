@@ -7,6 +7,7 @@ import me.sml.order.domain.model.OrdersRequestDTO;
 import me.sml.order.domain.model.OrdersResponseDTO;
 import me.sml.order.domain.repository.OrdersRepository;
 import me.sml.order.springboot.messageq.KafkaProducer;
+import me.sml.order.springboot.service.IMSAServiceMember;
 import me.sml.order.springboot.service.OrdersService;
 import me.sml.order.util.ReturnType;
 import org.springframework.http.HttpStatus;
@@ -24,9 +25,13 @@ public class CoffeeOrderRestController {
     private final OrdersService ordersService;
     private final KafkaProducer kafkaProducer;
     private final OrdersRepository ordersRepository;
+    private final IMSAServiceMember imsaServiceMember;
 
     @PostMapping("/coffee")
     public ResponseEntity<OrdersResponseDTO> orderCoffee(@RequestBody OrdersRequestDTO ordersRequestDTO){
+        if(imsaServiceMember.cafeMember(ordersRequestDTO.getCustomerName())){
+            System.out.println(ordersRequestDTO.getCustomerName() + " is a member!!!");
+        }
         long total = ordersRepository.count();
         int orderNumber = (int) total + 1;
         Orders savedOrder = ordersService.save(ordersRequestDTO.toEntity(), orderNumber);
