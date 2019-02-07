@@ -4,3 +4,11 @@ server:
 spring:
   application:
     name: MSA-Service-Member
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
