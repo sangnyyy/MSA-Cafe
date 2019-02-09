@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  application:
+    name: MSA-Service-Status
+
+  #Config Server
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: MSA-Cafe-Config-Server
+
+#Eureka Client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/

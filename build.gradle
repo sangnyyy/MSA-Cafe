@@ -12,7 +12,7 @@ dependencies {
 
 buildscript {
     ext {
-        springBootVersion = '2.1.2.RELEASE'
+        springBootVersion = '1.5.10.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -25,9 +25,10 @@ buildscript {
 
 
 subprojects {
-    group = 'me.sml'
+    group = 'me.sml.msa'
     version = '0.0.1-SNAPSHOT'
     apply plugin: 'java'
+    apply plugin: 'eclipse'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
@@ -38,15 +39,18 @@ subprojects {
         maven { url 'https://repo.spring.io/milestone' }
     }
 
-    task initSourceFolders{
-        sourceSets*.java.srcDirs*.each{
-            if ( !it.exists()) it.mkdir()
+    task initSourceFolders {
+        sourceSets*.java.srcDirs*.each {
+            if( !it.exists() ) it.mkdirs()
         }
-        sourceSets*.resources.srcDirs*.each{
-            if ( !it.exists()) it.mkdir()
+        sourceSets*.resources.srcDirs*.each {
+            if( !it.exists() ) it.mkdirs()
         }
     }
+
     dependencies {
+        compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+        compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
         compile('org.projectlombok:lombok:1.18.4')
         compile('org.projectlombok:lombok-utils:1.18.4')
         compile('junit:junit:4.12')
