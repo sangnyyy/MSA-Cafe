@@ -12,3 +12,13 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: MSA-Architecture-Config-Server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/
