@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/order")
 @RequiredArgsConstructor
 public class CoffeeOrderRestController {
 
@@ -26,7 +25,7 @@ public class CoffeeOrderRestController {
     private final OrdersRepository ordersRepository;
     private final IMSAServiceMember imsaServiceMember;
 
-    @PostMapping("/coffee")
+    @PostMapping("/coffeeOrder")
     public ResponseEntity<OrdersResponseDTO> orderCoffee(@RequestBody OrdersRequestDTO ordersRequestDTO){
         if(imsaServiceMember.cafeMember(ordersRequestDTO.getCustomerName())){
             System.out.println(ordersRequestDTO.getCustomerName() + " is a msa!!!");

@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/status")
 @RequiredArgsConstructor
 public class CoffeeOrderStatusController {
 
     private final OrderStatusRepository orderStatusRepository;
 
     @HystrixCommand
-    @GetMapping("/")
+    @GetMapping("/coffeeOrderStatus")
     public ResponseEntity<OrderStatusResponseDTO> coffeeOrderStatus(){
         List<OrderStatus> orderStatuses = orderStatusRepository.findAll();
         OrderStatusResponseDTO orderStatusResponseDTO = new OrderStatusResponseDTO();
