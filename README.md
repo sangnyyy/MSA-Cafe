@@ -78,3 +78,10 @@ rootProject.name = 'cafe'
 
 include 'MSA-Service-Order', 'MSA-Service-Member', 'MSA-Service-Status'
 ```
+
+### MSA-Service-Member
+
+h2 sql 파일 실행 방법
+
+* classpath(resources/)에 schema.sql, data.sql을 생성한다. 여기서 schema.sql은 DDL을 의미하고 data.sql은 DML을 의미한다.
+* 참조) https://dodo4513.github.io/2018/05/05/spring_h2_mybatis/
