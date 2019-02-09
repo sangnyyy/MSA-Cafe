@@ -16,7 +16,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
-      name: MSA-Architecture-Config-Server
+      name: MSA-Cafe-Config-Server
 
 eureka:
   client:
