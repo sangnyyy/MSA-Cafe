@@ -11,20 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
 @RestController
-@RequestMapping("/api/member")
 @RequiredArgsConstructor
 public class CoffeeMemberRestController {
 
     private final MemberRepository memberRepository;
 
     @HystrixCommand
-    @GetMapping("/v1.0/{memberName}")
+    @GetMapping("/coffeeMember/v1.0/{memberName}")
     public boolean isMember(@PathVariable("memberName") String memberName){
         if(memberRepository.findByName(memberName) != null){
             return true;
         }else{
             return false;
         }
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackFunction")
+    @GetMapping("/fallbackTest")
+    public String fallbackTest() throws Throwable{
+        throw new Throwable("fallbackTest");
+    }
+    public String fallbackFunction(){
+        return "fallbackFunction()";
     }
 
 }
